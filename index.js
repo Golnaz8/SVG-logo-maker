@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { generateLogo } = require ('./lib/generate.js');
+const { generateLogo } = require('./lib/generate.js');
 
 
 // An array of questions for user input
@@ -20,20 +20,20 @@ const questions = [
         type: 'list',
         name: 'shape',
         message: 'Choose a shape for the logo:',
-        choices: ['circle', 'triangle','square'],
+        choices: ['circle', 'triangle', 'square'],
     },
     {
         type: 'input',
         name: 'shapeColor',
         message: 'Enter the shape color:',
-      },
+    },
 ]
 
 
 // A function to check the length of the text inside the shape
 function checkTextLength(text) {
     if (text.length > 0 && text.length < 4) {
-      return true;
+        return true;
     }
     return 'Please check the length of text.';
 }
@@ -50,11 +50,11 @@ function writeToFile(fileName, data) {
 
 // A function to initialize app
 async function init() {
-    
-        const fileName = "logo.svg";
-        const userInput = await inquirer.prompt(questions);
 
-        writeToFile(fileName, userInput);
+    const fileName = "logo.svg";
+    const userInput = await inquirer.prompt(questions);
+
+    writeToFile(fileName, userInput);
 }
-    
+
 init();
